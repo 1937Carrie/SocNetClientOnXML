@@ -11,30 +11,44 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import sdumchykov.task1.databinding.ActivitySignUpBinding
 
+private const val dsa = 123
+
+private const val onlyDigits = "\\d"
+
+private const val MINIMUM_PASSWORD_LENGTH = 8
+
+private const val EMAIL = "email"
+
+private const val PASSWORD = "password"
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding::inflate) {
-
+    //TODO переробити на doOnTextChanged
     private val watcher: TextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             with(binding) {
-                val lessThanEightSymbols = textInputPassword.text?.length!! < 8
-                val notContainsDigits = !textInputPassword.text?.contains(Regex("\\d"))!!
-                val notContainsCharacters = !textInputPassword.text?.contains(Regex("[a-zA-Z]+"))!!
+                val lessThanEightSymbols =
+                    textInputPassword.text.toString().length < MINIMUM_PASSWORD_LENGTH
+                val notContainsDigits =
+                    !textInputPassword.text.toString().contains(Regex(onlyDigits))
+                val notContainsCharacters =
+                    !textInputPassword.text.toString().contains(Regex("[a-zA-Z]+"))
 
-                if (!textInputEmail.text?.contains(Regex(".+@.+\\..+"))!!) {
-                    textInputLayoutEmail.error = resources.getString(R.string.error_message_email)
-                } else {
-                    textInputLayoutEmail.error = null
-                }
+                //TODO винести патерни regex в константи
+                textInputLayoutEmail.error =
+                    if (!textInputEmail.text?.contains(Regex(".+@.+\\..+"))!!) {
+                        resources.getString(R.string.error_message_email)
+                    } else {
+                        null
+                    }
 
-                if (lessThanEightSymbols || notContainsDigits || notContainsCharacters) {
-                    textInputLayoutPassword.error =
+                textInputLayoutPassword.error =
+                    if (lessThanEightSymbols || notContainsDigits || notContainsCharacters) {
                         resources.getString(R.string.error_message_password)
-                } else {
-                    textInputLayoutPassword.error = null
-                }
+                    } else {
+                        null
+                    }
 
 
                 val emailError = textInputLayoutEmail.error.isNullOrEmpty()
@@ -60,21 +74,28 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
             startMainActivity()
 
             if (savedInstanceState != null) {
-                textInputEmail.setText(savedInstanceState.getString("email"))
-                textInputPassword.setText(savedInstanceState.getString("password"))
+                textInputEmail.setText(savedInstanceState.getString(EMAIL))
+                textInputPassword.setText(savedInstanceState.getString(PASSWORD))
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+
+        outState.putString(EMAIL, binding.textInputEmail.text.toString())
+        outState.putString(PASSWORD, binding.textInputPassword.text.toString())
     }
 
     private fun startMainActivity() {
         val cachedData = getPreferences(MODE_PRIVATE)
 
-        if (cachedData.getString("Email", "")?.length!! > 0) {
+        if (cachedData.getString(EMAIL, "")?.length!! > 0) {
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
 
-            intent.putExtra("email", cachedData.getString("Email", ""))
+            intent.putExtra(EMAIL, cachedData.getString(EMAIL, ""))
 
             startActivity(intent)
             finish()
@@ -87,17 +108,17 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
         textInputPassword: AppCompatEditText
     ) {
         buttonRegister.setOnClickListener {
-            if (binding.checkBoxRememberMe.isChecked) {
+            if (binding.signUpCheckBoxRememberMe.isChecked) {
                 val cachedData = getPreferences(MODE_PRIVATE)
                 val editor = cachedData.edit()
 
-                editor.putString("Email", textInputEmail.text.toString())
+                editor.putString(EMAIL, textInputEmail.text.toString())
                 editor.putString("Password", textInputPassword.text.toString())
 
                 editor.apply()
 
                 val toast = Toast.makeText(
-                    applicationContext, "${cachedData.getString("Email", "Not found")}\n" + "${
+                    applicationContext, "${cachedData.getString(EMAIL, "Not found")}\n" + "${
                         cachedData.getString("Password", "Not found")
                     }", Toast.LENGTH_LONG
                 )
@@ -106,12 +127,10 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
             }
 
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("email", textInputEmail.text.toString())
+            intent.putExtra(EMAIL, textInputEmail.text.toString())
             startActivity(intent)
 
-            if (binding.checkBoxRememberMe.isChecked) {
-                finish()
-            }
+            finish()
         }
     }
 
@@ -121,12 +140,5 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
 
     private fun buttonRegisterDisable(buttonRegister: Button) {
         buttonRegister.isEnabled = false
-    }
-
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-
-        outState.putString("email", binding.textInputEmail.text.toString())
-        outState.putString("password", binding.textInputPassword.text.toString())
     }
 }

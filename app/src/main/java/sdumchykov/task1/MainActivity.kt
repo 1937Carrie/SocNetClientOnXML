@@ -6,8 +6,10 @@ import android.os.Bundle
 import sdumchykov.task1.databinding.ActivityMainBinding
 
 
-class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
+private const val HARDCODED_IMAGE_PATH = "https://www.instagram.com/p/BDdr32ZrvgP/"
 
+class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
+    //TODO dependency injection прочитати
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -19,23 +21,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         binding.imageInstagram.setOnClickListener {
             startActivity(
                 Intent(
-                    Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/p/BDdr32ZrvgP/")
+                    Intent.ACTION_VIEW, Uri.parse(HARDCODED_IMAGE_PATH)
                 )
             )
         }
     }
 
     private fun setTextToTextName() {
-        val signupEmail = intent.getStringExtra("email")
-        val splitted = signupEmail?.substring(0, signupEmail.indexOf('@'))?.split(Regex("\\W"))
+//        TODO
+//        someVariable?.let {
+//
+//}
+        val signupEmail = intent.getStringExtra("email") ?: ""
+        val splitted = signupEmail.substring(0, signupEmail.indexOf('@')).split(Regex("\\W"))
 
-        if (splitted?.size!! > 1) {
+        binding.textViewName.text = if (splitted.size > 1) {
             val firstName = splitted[0].replaceFirstChar { it.uppercase() }
             val secondName = splitted[1].replaceFirstChar { it.uppercase() }
 
-            binding.textViewName.text = "$firstName $secondName"
+            "$firstName $secondName"
         } else {
-            binding.textViewName.text = signupEmail.substring(0, signupEmail.indexOf('@'))
+            signupEmail.substring(0, signupEmail.indexOf('@'))
         }
     }
 

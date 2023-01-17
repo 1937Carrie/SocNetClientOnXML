@@ -60,6 +60,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLetsGetAcquainted" />
 
+<!--    TODO TextInputEditText можливо залишає стан view-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutEmail"
         android:layout_width="match_parent"
@@ -70,6 +72,7 @@
         android:hint="@string/email"
         android:textColorHint="@color/silver"
         app:errorEnabled="true"
+
         app:errorTextColor="@color/error"
         app:expandedHintEnabled="false"
         app:hintTextColor="@color/silver"
@@ -103,7 +106,7 @@
         app:expandedHintEnabled="false"
         app:hintTextColor="@color/silver"
 
-        app:layout_constraintBottom_toTopOf="@id/checkBoxRememberMe"
+        app:layout_constraintBottom_toTopOf="@id/signUpCheckBoxRememberMe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail">
@@ -120,7 +123,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/checkBoxRememberMe"
+        android:id="@+id/signUpCheckBoxRememberMe"
         style="@style/widthHeightIsWrapContent"
 
         android:button="@drawable/checkbox"
