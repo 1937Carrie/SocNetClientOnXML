@@ -55,7 +55,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/textViewLFillOutTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activitySignUp_010"
+        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activitySignUp_020"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLetsGetAcquainted" />

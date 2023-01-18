@@ -7,6 +7,9 @@ import sdumchykov.task1.databinding.ActivityMainBinding
 
 
 private const val HARDCODED_IMAGE_PATH = "https://www.instagram.com/p/BDdr32ZrvgP/"
+private const val EMAIL = "email"
+private const val SYMBOL_AT = '@'
+private const val PATTERN_NON_CHARACTER = "\\W"
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
     //TODO dependency injection прочитати
@@ -19,11 +22,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     private fun setURIToImageInstagram() {
         binding.imageInstagram.setOnClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW, Uri.parse(HARDCODED_IMAGE_PATH)
-                )
-            )
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(HARDCODED_IMAGE_PATH)))
         }
     }
 
@@ -32,8 +31,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 //        someVariable?.let {
 //
 //}
-        val signupEmail = intent.getStringExtra("email") ?: ""
-        val splitted = signupEmail.substring(0, signupEmail.indexOf('@')).split(Regex("\\W"))
+        val signupEmail = intent.getStringExtra(EMAIL) ?: ""
+        val splitted = signupEmail.substring(0, signupEmail.indexOf(SYMBOL_AT))
+            .split(Regex(PATTERN_NON_CHARACTER))
 
         binding.textViewName.text = if (splitted.size > 1) {
             val firstName = splitted[0].replaceFirstChar { it.uppercase() }
@@ -41,7 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
             "$firstName $secondName"
         } else {
-            signupEmail.substring(0, signupEmail.indexOf('@'))
+            signupEmail.substring(0, signupEmail.indexOf(SYMBOL_AT))
         }
     }
 
