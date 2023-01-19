@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <View
         android:id="@+id/constraintLayoutNord"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
 
         android:background="@color/steel_gray"
@@ -19,9 +19,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="0.5" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <View
         android:id="@+id/constraintLayoutSouth"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
 
         android:background="@color/mine_shaft"

@@ -8,6 +8,7 @@
     <dimen name="dimension_24dp">24dp</dimen>
     <dimen name="dimension_32dp">32dp</dimen>
     <dimen name="dimension_40dp">40dp</dimen>
+    <dimen name="dimension_48dp">48dp</dimen>
     <dimen name="dimension_52dp">52dp</dimen>
     <!-- Text size  -->
     <dimen name="text_12sp">12sp</dimen>

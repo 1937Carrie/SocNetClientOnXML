@@ -13,5 +13,6 @@
     <color name="half_transparent_gray">#1A808080</color>
     <color name="mine_shaft">@color/alabaster</color>
     <color name="buttonEditProfileTextColor">#000000</color>
+    <color name="test_sample">#027F73</color>
     <color name="error">#B00020</color>
 </resources>

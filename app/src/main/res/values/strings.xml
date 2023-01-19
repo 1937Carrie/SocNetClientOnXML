@@ -10,7 +10,7 @@
     <string name="edit_profile">Edit profile</string>
     <string name="view_my_contacts">VIEW MY CONTACTS</string>
     <!-- Main activity service strings  -->
-    <string name="error_message_email">Enter valid email</string>
+    <string name="error_message_email">Incorrect E-Mail address</string>
     <string name="error_message_password">Min 8 symbols. Letters and digits are required</string>
     <!--  Sign up activity  -->
     <string name="let_s_get_a">Let\'s get acquainted</string>
