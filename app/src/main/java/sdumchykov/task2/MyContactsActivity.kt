@@ -27,6 +27,8 @@ import sdumchykov.task2.model.Contact
 import sdumchykov.task2.model.ContactViewModel
 import sdumchykov.task2.model.MyViewModelFactory
 
+private const val IMAGE_URL = "https://picsum.photos/200"
+
 class MyContactsActivity :
     BaseActivity<ActivityMyContactsBinding>(ActivityMyContactsBinding::inflate) {
     private val contactsModeTumbler = false
@@ -85,7 +87,7 @@ class MyContactsActivity :
                 Contact(
                     "${name.text.toString()} ${surname.text.toString()}",
                     profession.text.toString(),
-                    "https://picsum.photos/200"
+                    IMAGE_URL
                 )
             )
 
@@ -131,12 +133,15 @@ class MyContactsActivity :
             }
 
             while (phones!!.moveToNext()) {
-                @SuppressLint("Range") val name =
+                @SuppressLint("Range")
+                val name =
                     phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
-                @SuppressLint("Range") val phoneNumber =
-                    phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
 
-                val contact = Contact(name, phoneNumber, "https://picsum.photos/200")
+                @SuppressLint("Range")
+                val phoneNumber =
+                    phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                val contact = Contact(name, phoneNumber, IMAGE_URL)
+
                 contactList.add(contact)
             }
 

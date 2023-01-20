@@ -30,8 +30,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
             startMainActivity()
 
             if (savedInstanceState != null) {
-                textInputEmail.setText(savedInstanceState.getString("email"))
-                textInputPassword.setText(savedInstanceState.getString("password"))
+                textInputEmail.setText(savedInstanceState.getString(EMAIL))
+                textInputPassword.setText(savedInstanceState.getString(PASSWORD))
             }
         }
     }
@@ -69,13 +69,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
                 val editor = cachedData.edit()
 
                 editor.putString(EMAIL, textInputEmail.text.toString())
-                editor.putString("Password", textInputPassword.text.toString())
+                editor.putString(PASSWORD, textInputPassword.text.toString())
 
                 editor.apply()
 
                 val toast = Toast.makeText(
                     applicationContext, "${cachedData.getString(EMAIL, "Not found")}\n" + "${
-                        cachedData.getString("Password", "Not found")
+                        cachedData.getString(PASSWORD, "Not found")
                     }", Toast.LENGTH_LONG
                 )
                 toast.show()

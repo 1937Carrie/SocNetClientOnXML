@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/constraintLayoutNord"
+        android:id="@+id/constraintLayoutNorth"
         android:layout_width="0dp"
         android:layout_height="match_parent"
 
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="0.5"
-        app:layout_constraintStart_toEndOf="@id/constraintLayoutNord"
+        app:layout_constraintStart_toEndOf="@id/constraintLayoutNorth"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -79,7 +79,7 @@
 
         app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activityMainLand_014"
         app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMainLand_002"
-        app:layout_constraintTop_toTopOf="@id/constraintLayoutNord" />
+        app:layout_constraintTop_toTopOf="@id/constraintLayoutNorth" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageViewPicture"
@@ -91,7 +91,7 @@
 
         android:src="@drawable/tmp_rounded_image"
         app:layout_constraintBottom_toTopOf="@id/textViewName"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNord"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNorth"
         app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMainLand_002"
         app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMainLand_014" />
 
@@ -108,7 +108,7 @@
         android:textSize="@dimen/text_18sp"
 
         app:layout_constraintBottom_toTopOf="@id/textViewProfession"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNord"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNorth"
         app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMainLand_002" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -122,7 +122,7 @@
         android:textAppearance="@style/additionalTextAppearance"
 
         app:layout_constraintBottom_toTopOf="@id/textViewAddress"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNord"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNorth"
         app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMainLand_002" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -135,7 +135,7 @@
         android:textAppearance="@style/additionalTextAppearance"
 
         app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activityMainLand_086"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNord"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutNorth"
         app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMainLand_002" />
 
     <androidx.constraintlayout.helper.widget.Flow

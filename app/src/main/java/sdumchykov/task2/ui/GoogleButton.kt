@@ -12,15 +12,18 @@ import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import sdumchykov.task2.R
 
-const val radiusValue = 4F
-const val iconSideValue = 18F   //https://developers.google.com/identity/branding-guidelines#padding
-const val betweenLogoAndText =
+private const val RADIUS_VALUE = 4F
+private const val ICON_SIDE_VALUE =
+    18F   //https://developers.google.com/identity/branding-guidelines#padding
+private const val BETWEEN_LOGO_AND_TEXT =
     24F  //https://developers.google.com/identity/branding-guidelines#padding
+private const val GOOGLE = "GOOGLE"
+private const val HEIGHT = 36F
 
 class GoogleButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-    val text = "GOOGLE"
+    val text = GOOGLE
     val fontFamily = ResourcesCompat.getFont(context, R.font.roboto_regular)
 
     private val paint = Paint().apply {
@@ -30,9 +33,9 @@ class GoogleButton @JvmOverloads constructor(
         textAlign = Paint.Align.CENTER
     }
     private val rect = Rect()
-    val radius = floatToDP(radiusValue)  // Radius of the rounded corner.
+    val radius = floatToDP(RADIUS_VALUE)  // Radius of the rounded corner.
     private val icon = ResourcesCompat.getDrawable(resources, R.drawable.google_logo, null)!!
-    private val iconSide = floatToDP(iconSideValue).toInt()
+    private val iconSide = floatToDP(ICON_SIDE_VALUE).toInt()
 
     init {
         val shape = GradientDrawable()
@@ -58,12 +61,13 @@ class GoogleButton @JvmOverloads constructor(
         paint.typeface = fontFamily
         val yPos = (height - paint.descent() - paint.ascent()) / 2
         canvas.drawText(
-            text, (measuredWidth + iconSide + floatToDP(betweenLogoAndText)) / 2, yPos, paint
+            text, (measuredWidth + iconSide + floatToDP(BETWEEN_LOGO_AND_TEXT)) / 2, yPos, paint
         )
     }
 
     private fun drawLogo(canvas: Canvas) {
-        val startX = (measuredWidth - iconSide - floatToDP(betweenLogoAndText) - text.width()) / 2
+        val startX =
+            (measuredWidth - iconSide - floatToDP(BETWEEN_LOGO_AND_TEXT) - text.width()) / 2
         icon.setBounds(
             startX.toInt(),
             (measuredHeight - iconSide) / 2,
@@ -74,7 +78,7 @@ class GoogleButton @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val newHeight = floatToDP(36F).toInt()
+        val newHeight = floatToDP(HEIGHT).toInt()
 
         super.onMeasure(
             widthMeasureSpec, MeasureSpec.makeMeasureSpec(newHeight, MeasureSpec.EXACTLY)
