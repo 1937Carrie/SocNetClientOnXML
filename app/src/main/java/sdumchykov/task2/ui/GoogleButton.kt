@@ -34,7 +34,7 @@ class GoogleButton @JvmOverloads constructor(
     }
     private val rect = Rect()
     val radius = floatToDP(RADIUS_VALUE)  // Radius of the rounded corner.
-    private val icon = ResourcesCompat.getDrawable(resources, R.drawable.google_logo, null)!!
+    private val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_google_logo, null)!!
     private val iconSide = floatToDP(ICON_SIDE_VALUE).toInt()
 
     init {

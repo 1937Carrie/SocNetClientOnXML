@@ -1,4 +1,4 @@
-package sdumchykov.task2
+package sdumchykov.task2.presentation.main
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -20,6 +20,10 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import sdumchykov.task2.BaseActivity
+import sdumchykov.task2.R
+import sdumchykov.task2.SwipeToDeleteCallback
+import sdumchykov.task2.adapter.ContactsListener
 import sdumchykov.task2.adapter.ItemAdapter
 import sdumchykov.task2.data.Datasource
 import sdumchykov.task2.databinding.ActivityMyContactsBinding
@@ -30,11 +34,10 @@ import sdumchykov.task2.model.MyViewModelFactory
 private const val IMAGE_URL = "https://picsum.photos/200"
 
 class MyContactsActivity :
-    BaseActivity<ActivityMyContactsBinding>(ActivityMyContactsBinding::inflate) {
+    BaseActivity<ActivityMyContactsBinding>(ActivityMyContactsBinding::inflate), ContactsListener {
     private val contactsModeTumbler = false
     private lateinit var viewModel: ContactViewModel
-    private lateinit var contactList: ArrayList<Contact>
-    private val adapter = ItemAdapter(::deleteContact)
+    private val adapter = ItemAdapter(contactsListener = this)
     private lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +50,7 @@ class MyContactsActivity :
         contactList = if (contactsModeTumbler) ArrayList() else Datasource().get()
         viewModel =
             ViewModelProvider(this, MyViewModelFactory(contactList))[ContactViewModel::class.java]
-        viewModel.contactList.observe(this) { adapter.setContactList(it) }
+        viewModel.contactList.observe(this) { adapter.submitList(it.toMutableList()) }
 
         if (contactsModeTumbler) {
             getContactsListWithDexter()
@@ -153,7 +156,7 @@ class MyContactsActivity :
         }
     }
 
-    private fun deleteContact(contact: Contact) {
+    override fun deleteContact(contact: Contact) {
         viewModel.removeItem(contact)
 
         val snackbar =

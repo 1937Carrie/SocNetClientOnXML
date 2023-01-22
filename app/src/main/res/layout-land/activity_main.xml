@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.main.MainActivity">
 
     <View
         android:id="@+id/constraintLayoutNorth"
@@ -154,7 +154,7 @@
         style="@style/widthHeightIsWrapContent"
 
         android:contentDescription="@string/icon_facebook"
-        android:src="@drawable/fb"
+        android:src="@drawable/ic_facebook"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -162,7 +162,7 @@
         style="@style/widthHeightIsWrapContent"
 
         android:contentDescription="@string/icon_linkedin"
-        android:src="@drawable/linkedin"
+        android:src="@drawable/ic_linkedin"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -170,7 +170,7 @@
         style="@style/widthHeightIsWrapContent"
 
         android:contentDescription="@string/icon_instagram"
-        android:src="@drawable/instagram"
+        android:src="@drawable/ic_instagram"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -195,7 +195,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:background="@drawable/button_orange"
+        android:background="@drawable/btn_orange"
         android:text="@string/view_my_contacts"
         android:textAppearance="@style/viewMyContactsTextAppearance"
 

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.doOnTextChanged
 import sdumchykov.task2.databinding.ActivitySignUpBinding
+import sdumchykov.task2.presentation.main.MainActivity
 
 private const val MINIMUM_PASSWORD_LENGTH = 8
 private const val PATTERN_DIGIT = "\\d"

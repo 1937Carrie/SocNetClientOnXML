@@ -1,34 +1,32 @@
 package sdumchykov.task2.model
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 
-class ContactViewModel(private val repository: ArrayList<Contact>) : ViewModel() {
-    val contactList = MutableLiveData<ArrayList<Contact>>()
+@HiltViewModel
+class ContactViewModel @inject constructor(private val repository: List<Contact>) : ViewModel() {
+    private val _contactList = MutableLiveData<List<Contact>>()
+    val contactList: LiveData<List<Contact>> = _contactList
 
     init {
         getAllContacts()
     }
 
-    fun getAllContacts() {
-        contactList.postValue(repository)
+    private fun getAllContacts() {
+        _contactList.value = repository
     }
 
-    fun addItem(contact: Contact){
-        val tmp = contactList.value
-        tmp?.add(contact)
-        contactList.value = tmp
+    fun addItem(contact: Contact) {
+        _contactList.value = contactList.value?.toMutableList()?.apply { add(contact) }
     }
 
-    fun updateItem(index: Int, newData: Contact) {
-        val tmp = contactList.value
-        tmp?.set(index, newData)
-        contactList.value = tmp
+    fun updateItem(index: Int, newContact: Contact) {
+        _contactList.value = contactList.value?.toMutableList()?.apply { set(index, newContact) }
     }
 
     fun removeItem(contact: Contact) {
-        val tmp = contactList.value
-        tmp?.remove(contact)
-        contactList.value = tmp
+        _contactList.value = contactList.value?.toMutableList()?.apply { remove(contact) }
     }
 }

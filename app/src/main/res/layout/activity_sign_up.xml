@@ -124,7 +124,7 @@
         style="@style/widthHeightIsWrapContent"
 
         android:backgroundTint="@color/orange"
-        android:button="@drawable/checkbox"
+        android:button="@drawable/cb"
         android:buttonTint="@color/alabaster"
         android:checked="true"
         android:paddingStart="@dimen/dimension_8dp"

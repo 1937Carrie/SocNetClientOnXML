@@ -2,40 +2,43 @@ package sdumchykov.task2.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import sdumchykov.task2.databinding.ContactItemBinding
 import sdumchykov.task2.extensions.setImageCacheless
 import sdumchykov.task2.model.Contact
 
-class ItemAdapter(private val onDeleteCallback: (Contact) -> Unit) :
-    RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
-    private var contacts = mutableListOf<Contact>()
+class ItemAdapter(private val contactsListener: ContactsListener) :
+    ListAdapter<Contact, ItemAdapter.ContactsViewHolder>(ContactsDiffCallback()) {
 
-    fun setContactList(contacts: List<Contact>) {
-        this.contacts = contacts.toMutableList()
-        notifyDataSetChanged()
-    }
-
-    class ViewHolder(val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ContactItemBinding.inflate(inflater, parent, false)
 
-        return ViewHolder(binding)
+        return ContactsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        with(viewHolder.binding) {
-            val contact = contacts[position]
-            textViewName.text = contact.name
-            textViewProfession.text = contact.profession
-            imageViewPhoto.setImageCacheless(viewHolder.itemView.context, contact.photo)
+    inner class ContactsViewHolder(private val binding: ContactItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindTo(contact: Contact) {
+            with(binding) {
 
-            imageButtonDelete.setOnClickListener { onDeleteCallback(contact) }
+                textViewName.text = contact.name
+                textViewProfession.text = contact.profession
+                imageViewPhoto.setImageCacheless(contact.photo)
+
+                setListeners(contact)
+            }
+
+        }
+
+        private fun ContactItemBinding.setListeners(contact: Contact) {
+            imageButtonDelete.setOnClickListener { contactsListener.deleteContact(contact) }
         }
     }
 
-    override fun getItemCount() = contacts.size
+    override fun onBindViewHolder(viewHolder: ContactsViewHolder, position: Int) {
+        viewHolder.bindTo(getItem(position))
+    }
 
 }

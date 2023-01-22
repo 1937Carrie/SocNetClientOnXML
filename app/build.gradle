@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -56,4 +58,12 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 //    Dexter (not Morgan)
     implementation 'com.karumi:dexter:6.0.2'
+//    Hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+}
+
+//Allow references to generated code
+kapt {
+    correctErrorTypes true
 }

@@ -2,10 +2,12 @@ package sdumchykov.task2.data
 
 import sdumchykov.task2.model.Contact
 
+private const val NAME_1 = "James Mary"
+
 class Datasource {
-        private var data = arrayListOf(
+        private var data = listOf(
             Contact(
-                name = "James Mary",
+                name = NAME_1,
                 profession = "Photograph",
                 photo = "https://picsum.photos/200"
             ),
@@ -50,4 +52,7 @@ class Datasource {
             data = value
         }
 
+    private companion  object{
+
+    }
 }
