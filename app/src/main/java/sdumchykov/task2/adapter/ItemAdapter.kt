@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import sdumchykov.presentation.utils.ext.setImageCacheless
 import sdumchykov.task2.databinding.ContactItemBinding
-import sdumchykov.task2.extensions.setImageCacheless
 import sdumchykov.task2.model.Contact
 
 class ItemAdapter(private val contactsListener: ContactsListener) :

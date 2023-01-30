@@ -4,9 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
+import sdumchykov.presentation.utils.ext.setImage
 import sdumchykov.task2.*
 import sdumchykov.task2.databinding.ActivityMainBinding
-import sdumchykov.task2.extensions.setImage
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {

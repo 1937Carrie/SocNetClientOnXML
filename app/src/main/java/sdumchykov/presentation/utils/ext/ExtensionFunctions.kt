@@ -1,4 +1,4 @@
-package sdumchykov.task2.extensions
+package sdumchykov.presentation.utils.ext
 
 import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
