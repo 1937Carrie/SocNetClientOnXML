@@ -17,6 +17,7 @@ class MainViewModel @Inject constructor(
 
 ) : ViewModel() {
     private val _userLiveData = MutableLiveData<List<UserModel>>(listOf())
+
     val userLiveData: LiveData<List<UserModel>> = _userLiveData
 
     init {
@@ -24,6 +25,19 @@ class MainViewModel @Inject constructor(
             _userLiveData.postValue(usersRepository.getUsers())
         }
     }
+
+    fun addItem(contact: UserModel?) {
+        _userLiveData.value = userLiveData.value?.toMutableList()?.apply {
+            if (contact != null) {
+                add(contact)
+            }
+        }
+    }
+
+    fun removeItem(contact: UserModel?) {
+        _userLiveData.value = userLiveData.value?.toMutableList()?.apply { remove(contact) }
+    }
+
 
 
 }

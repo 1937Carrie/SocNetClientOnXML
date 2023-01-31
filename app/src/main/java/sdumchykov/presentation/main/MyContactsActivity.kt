@@ -1,5 +1,6 @@
 package sdumchykov.presentation.main
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -11,54 +12,41 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import sdumchykov.R
+import sdumchykov.databinding.ActivityMyContactsBinding
 import sdumchykov.domain.model.UserModel
 import sdumchykov.presentation.main.adapter.UsersAdapter
 import sdumchykov.presentation.main.adapter.listener.UsersListener
-import sdumchykov.task2.BaseActivity
-import sdumchykov.task2.R
-import sdumchykov.task2.SwipeToDeleteCallback
-import sdumchykov.task2.databinding.ActivityMyContactsBinding
-import sdumchykov.task2.model.Contact
 
 @AndroidEntryPoint
 class MyContactsActivity :
-    BaseActivity<ActivityMyContactsBinding>(ActivityMyContactsBinding::inflate),
-    UsersListener {
+    BaseActivity<ActivityMyContactsBinding>(ActivityMyContactsBinding::inflate) {
 
     private val mainViewModel: MainViewModel by viewModels()
     private val usersAdapter: UsersAdapter by lazy {
-        UsersAdapter(usersListener = this)
+        UsersAdapter(usersListener = object : UsersListener {
+            override fun onUserClickAction(userModel: UserModel) {
+                Log.d("MainActivity", "onUserClickAction: ${userModel.id}")
+            }
+
+            override fun onTrashIconClickAction(userModel: UserModel) {
+                deleteContact(userModel)
+            }
+        })
     }
-//    private lateinit var contactList: ArrayList<UserModel>
+    private lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         imageButtonArrowBackSetOnClickListener()
-
         initRecyclers()
         setObservers()
-
-        val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
-                val contact = mainViewModel.userLiveData.value?.get(position)
-
-                deleteContact(contact)
-            }
-        }
-
-        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
-        itemTouchHelper.attachToRecyclerView(binding.recyclerViewContacts)
-
+        setSwipeToDelete()
         createAddContactDialog()
 
-        binding.textViewAddContacts.setOnClickListener { dialog.show() }
     }
 
-    override fun onUserClickAction(userModel: UserModel) {
-        Log.d("MainActivity", "onUserClickAction: ${userModel.id}")
-    }
 
     private fun imageButtonArrowBackSetOnClickListener() {
         binding.imageButtonArrowBack.setOnClickListener {
@@ -80,17 +68,34 @@ class MyContactsActivity :
         }
     }
 
-    private fun deleteContact(contact: UserModel?) {
+    private fun setSwipeToDelete() {
+        val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val contact = mainViewModel.userLiveData.value?.get(position)
+
+                deleteContact(contact)
+
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerViewContacts)
+    }
+
+    fun deleteContact(contact: UserModel?) {
         mainViewModel.removeItem(contact)
 
         val snackbar =
-            Snackbar.make(binding.recyclerViewContacts, "${contact.name} has been deleted", 5000)
+            Snackbar.make(binding.recyclerViewContacts, "${contact?.name} has been deleted", 5000)
 
         snackbar.setAction("Undo") {
-            viewModel.addItem(contact)
-            Toast.makeText(
-                applicationContext, "${contact.name} has been restored", Toast.LENGTH_LONG
-            ).show()
+            mainViewModel.addItem(contact)
+            if (contact != null) {
+                Toast.makeText(
+                    applicationContext, "${contact.name} has been restored", Toast.LENGTH_LONG
+                ).show()
+            }
         }
         snackbar.show()
     }
@@ -108,13 +113,15 @@ class MyContactsActivity :
             val profession =
                 view.findViewById<AppCompatEditText>(R.id.textinputedittext_addcontactsdialog_profession)
 
-            viewModel.addItem(
-                Contact(
-                    "${name.text.toString()} ${surname.text.toString()}",
-                    profession.text.toString(),
-                    "https://picsum.photos/200"
-                            IMAGE_URL
-                )
+            mainViewModel.addItem(
+                mainViewModel.userLiveData.value?.size?.let { it1 ->
+                    UserModel(
+                        id = it1,
+                        name = "${name.text.toString()} ${surname.text.toString()}",
+                        profession = profession.text.toString(),
+                        photo = "https://picsum.photos/200"
+                    )
+                }
             )
 
             name.text?.clear()
@@ -123,5 +130,55 @@ class MyContactsActivity :
 
             dialog.dismiss()
         }
+        binding.textViewAddContacts.setOnClickListener { dialog.show() }
     }
+//region Fetch contacts from phone book
+//    private fun getContactsListWithDexter() {
+//        Dexter.withActivity(this).withPermission(Manifest.permission.READ_CONTACTS)
+//            .withListener(object : PermissionListener {
+//                override fun onPermissionGranted(response: PermissionGrantedResponse) {
+//                    if (response.permissionName == Manifest.permission.READ_CONTACTS) {
+//                        contacts
+//                    }
+//                }
+//
+//                override fun onPermissionDenied(response: PermissionDeniedResponse) {
+//                    Toast.makeText(
+//                        this@MyContactsActivity, "Permission should be granted!", Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//
+//                override fun onPermissionRationaleShouldBeShown(
+//                    permission: PermissionRequest, token: PermissionToken
+//                ) {
+//                    token.continuePermissionRequest()
+//                }
+//            }).check()
+//    }
+//
+//    private val contacts: Unit
+//        @SuppressLint("NotifyDataSetChanged", "Recycle") get() {
+//            var phones: Cursor? = null
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                phones = contentResolver.query(
+//                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null
+//                )
+//            }
+//
+//            while (phones!!.moveToNext()) {
+//                @SuppressLint("Range")
+//                val name =
+//                    phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
+//
+//                @SuppressLint("Range")
+//                val phoneNumber =
+//                    phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+//                val contact = Contact(name, phoneNumber, IMAGE_URL)
+//
+//                contactList.add(contact)
+//            }
+//
+//        }
+//endregion
 }

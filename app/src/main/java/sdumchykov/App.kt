@@ -1,4 +1,4 @@
-package sdumchykov.task2
+package sdumchykov
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'sdumchykov.task2'
+    namespace 'sdumchykov'
     compileSdk 32
 
     defaultConfig {
-        applicationId "sdumchykov.task2"
+        applicationId 'sdumchykov.task2'
         minSdk 24
         targetSdk 32
         versionCode 1

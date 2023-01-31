@@ -1,4 +1,4 @@
-package sdumchykov.task2
+package sdumchykov.presentation.main
 
 import android.os.Bundle
 import android.view.LayoutInflater

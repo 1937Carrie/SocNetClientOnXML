@@ -1,12 +1,17 @@
-package sdumchykov.task2.presentation.main
+package sdumchykov.presentation.main
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
+import sdumchykov.R
+import sdumchykov.databinding.ActivityMainBinding
 import sdumchykov.presentation.utils.ext.setImage
-import sdumchykov.task2.*
-import sdumchykov.task2.databinding.ActivityMainBinding
+
+private const val HARDCODED_IMAGE_PATH = "https://www.instagram.com/p/BDdr32ZrvgP/"
+private const val EMAIL = "email"
+private const val SYMBOL_AT = '@'
+private const val PATTERN_NON_CHARACTER = "\\W"
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
@@ -22,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     private fun setMainPicture() {
         val drawableSource = R.drawable.ic_profile_image
-        binding.imageViewPicture.setImage(this, drawableSource)
+        binding.imageViewPicture.setImage(drawableSource)
     }
 
     private fun buttonViewMyContactsSetOnClickListener() {

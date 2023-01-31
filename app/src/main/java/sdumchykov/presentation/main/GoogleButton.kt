@@ -1,4 +1,4 @@
-package sdumchykov.task2.ui
+package sdumchykov.presentation.main
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
-import sdumchykov.task2.R
+import sdumchykov.R
 
 private const val RADIUS_VALUE = 4F
 private const val ICON_SIDE_VALUE =

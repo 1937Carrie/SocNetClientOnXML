@@ -1,4 +1,4 @@
-package sdumchykov.task2
+package sdumchykov.presentation.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.doOnTextChanged
-import sdumchykov.task2.databinding.ActivitySignUpBinding
-import sdumchykov.task2.presentation.main.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
+import sdumchykov.R
+import sdumchykov.databinding.ActivitySignUpBinding
 
 private const val MINIMUM_PASSWORD_LENGTH = 8
 private const val PATTERN_DIGIT = "\\d"
@@ -17,6 +18,7 @@ private const val PATTERN_CHARACTERS = "[a-zA-Z]+"
 private const val EMAIL = "email"
 private const val PASSWORD = "password"
 
+@AndroidEntryPoint
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {

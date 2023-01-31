@@ -145,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword"
             tools:ignore="RtlSymmetry" />
 
-        <sdumchykov.task2.ui.GoogleButton
+        <sdumchykov.presentation.main.GoogleButton
             android:id="@+id/buttonSignInWithGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

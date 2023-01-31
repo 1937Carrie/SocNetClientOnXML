@@ -1,10 +1,11 @@
 package sdumchykov.presentation.main.adapter.viewHolder
 
 import androidx.recyclerview.widget.RecyclerView
+import sdumchykov.databinding.ContactItemBinding
 import sdumchykov.domain.model.UserModel
 import sdumchykov.presentation.main.adapter.listener.UsersListener
 import sdumchykov.presentation.utils.ext.setImageCacheless
-import sdumchykov.task2.databinding.ContactItemBinding
+
 
 class UsersViewHolder(
     private val binding: ContactItemBinding,
@@ -25,6 +26,9 @@ class UsersViewHolder(
     private fun setListeners(user: UserModel) {
         binding.root.setOnClickListener {
             usersListener.onUserClickAction(user)
+        }
+        binding.imageButtonDelete.setOnClickListener {
+            usersListener.onTrashIconClickAction(user)
         }
     }
 }
