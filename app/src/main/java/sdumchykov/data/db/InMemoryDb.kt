@@ -7,61 +7,61 @@ class InMemoryDb @Inject constructor() {
     fun getHardcodedUsers(): List<UserModel> = listOf(
         UserModel(
             id = 1,
-            name = "John Johnson",
+            name = "Function Let",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 2,
-            name = "John Johnson",
+            name = "Function With",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 3,
-            name = "John Johnson",
+            name = "Function Run",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 4,
-            name = "John Johnson",
+            name = "Function Apply",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 5,
-            name = "John Johnson",
+            name = "Function Also",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 6,
-            name = "John Johnson",
+            name = "Readonly List",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 7,
-            name = "John Johnson",
+            name = "Readonly Map",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 8,
-            name = "John Johnson",
+            name = "Lazy Property",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 9,
-            name = "John Johnson",
+            name = "If Expression",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         ),
         UserModel(
             id = 10,
-            name = "John Johnson",
+            name = "Nullable Boolean",
             profession = "Photograph",
             photo = "https://picsum.photos/200"
         )

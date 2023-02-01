@@ -1,3 +1,5 @@
 package sdumchykov.domain.constants
 
-const val CONTACTS_MODE_TUMBLER = true
+object Constants {
+    const val FETCH_CONTACT_LIST = true
+}
