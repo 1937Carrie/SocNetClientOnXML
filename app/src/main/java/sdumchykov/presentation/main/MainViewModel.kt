@@ -29,7 +29,8 @@ class MainViewModel @Inject constructor(
     fun addItem(contact: UserModel?) {
         _userLiveData.value = userLiveData.value?.toMutableList()?.apply {
             if (contact != null) {
-                add(contact)
+//                add(contact)
+                add(contact.id, contact)
             }
         }
     }
@@ -37,7 +38,6 @@ class MainViewModel @Inject constructor(
     fun removeItem(contact: UserModel?) {
         _userLiveData.value = userLiveData.value?.toMutableList()?.apply { remove(contact) }
     }
-
 
 
 }

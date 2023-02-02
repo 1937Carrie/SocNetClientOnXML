@@ -23,7 +23,7 @@ import com.karumi.dexter.listener.single.PermissionListener
 import dagger.hilt.android.AndroidEntryPoint
 import sdumchykov.R
 import sdumchykov.databinding.ActivityMyContactsBinding
-import sdumchykov.domain.constants.Constants
+import sdumchykov.domain.constants.ConstantsAndVariables
 import sdumchykov.domain.model.UserModel
 import sdumchykov.presentation.main.adapter.UsersAdapter
 import sdumchykov.presentation.main.adapter.listener.UsersListener
@@ -56,7 +56,7 @@ class MyContactsActivity :
         setObservers()
         setSwipeToDelete()
         createAddContactDialog()
-        if (Constants.FETCH_CONTACT_LIST)
+        if (ConstantsAndVariables.FETCH_CONTACT_LIST)
             if (mainViewModel.userLiveData.value?.size == 0)
                 getContactsListWithDexter()
 

@@ -3,9 +3,11 @@ package sdumchykov.presentation.main
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import dagger.hilt.android.AndroidEntryPoint
 import sdumchykov.R
 import sdumchykov.databinding.ActivityMainBinding
+import sdumchykov.domain.constants.ConstantsAndVariables
 import sdumchykov.presentation.utils.ext.setImage
 
 private const val HARDCODED_IMAGE_PATH = "https://www.instagram.com/p/BDdr32ZrvgP/"
@@ -22,25 +24,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         setMainPicture()
         setTextToTextName()
         setURIToImageInstagram()
-        buttonViewMyContactsSetOnClickListener()
+        setListeners()
+
     }
 
     private fun setMainPicture() {
         val drawableSource = R.drawable.ic_profile_image
         binding.imageViewPicture.setImage(drawableSource)
-    }
-
-    private fun buttonViewMyContactsSetOnClickListener() {
-        binding.buttonViewMyContacts.setOnClickListener {
-            val intent = Intent(this, MyContactsActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
-    private fun setURIToImageInstagram() {
-        binding.imageInstagram.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(HARDCODED_IMAGE_PATH)))
-        }
     }
 
     private fun setTextToTextName() {
@@ -55,6 +45,38 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             "$firstName $secondName"
         } else {
             signupEmail.substring(0, signupEmail.indexOf(SYMBOL_AT))
+        }
+    }
+
+    private fun setURIToImageInstagram() {
+        binding.imageInstagram.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(HARDCODED_IMAGE_PATH)))
+        }
+    }
+
+    private fun setListeners() {
+        imageViewPictureSetOnClickListener()
+        buttonViewMyContactsSetOnClickListener()
+    }
+
+    private fun imageViewPictureSetOnClickListener() {
+        binding.imageViewPicture.setOnClickListener {
+            ConstantsAndVariables.FETCH_CONTACT_LIST = !ConstantsAndVariables.FETCH_CONTACT_LIST
+            val toastText = if (ConstantsAndVariables.FETCH_CONTACT_LIST) {
+                "Fetch contact list"
+            } else {
+                "Show hardcoded contact list data"
+            }
+            Toast.makeText(
+                this, toastText, Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun buttonViewMyContactsSetOnClickListener() {
+        binding.buttonViewMyContacts.setOnClickListener {
+            val intent = Intent(this, MyContactsActivity::class.java)
+            startActivity(intent)
         }
     }
 
