@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="82dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontalGuideline_contactItem_034"
@@ -41,6 +41,13 @@
         app:layout_constraintGuide_percent="0.18" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuideline_contactItem_020"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalGuideline_contactItem_092"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +56,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageViewBackground"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"
@@ -66,21 +73,21 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginVertical="@dimen/dimension_8dp"
+
         android:contentDescription="Profile photo"
 
         app:layout_constraintBottom_toBottomOf="@id/imageViewBackground"
-
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="@id/verticalGuideline_contactItem_018"
         app:layout_constraintStart_toStartOf="@id/verticalGuideline_contactItem_006"
         app:layout_constraintTop_toTopOf="@id/imageViewBackground"
-        tools:src="@tools:sample/avatars"/>
+
+        tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewMainName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="@dimen/dimension_8dp"
         android:layout_marginEnd="16dp"
 
@@ -88,25 +95,26 @@
         android:fontFamily="@font/opensans_semi_bold"
         android:lines="1"
         android:scrollHorizontally="true"
-        android:text="Very long test name AABBCCDDEE"
         android:textSize="18sp"
 
         app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline_contactItem_054"
         app:layout_constraintEnd_toStartOf="@id/imageButtonDelete"
-        app:layout_constraintStart_toEndOf="@id/imageViewPhoto" />
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline_contactItem_020"
+
+        tools:text="Very long test name AABBCCDDEE" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewProfession"
+        android:id="@+id/textViewMainProfession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dimension_8dp"
 
         android:fontFamily="@font/opensans_regular"
-        android:text="Profession"
         android:textSize="12sp"
 
-        app:layout_constraintStart_toStartOf="@id/textViewName"
-        app:layout_constraintTop_toBottomOf="@id/horizontalGuideline_contactItem_054" />
+        app:layout_constraintStart_toStartOf="@id/textViewMainName"
+        app:layout_constraintTop_toBottomOf="@id/horizontalGuideline_contactItem_054"
+        tools:text="Profession" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageButtonDelete"

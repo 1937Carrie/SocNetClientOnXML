@@ -4,81 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyContactsActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutNord2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-
-        android:background="@color/steel_gray"
-
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activityMyContactsLand_020"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/steel_gray"
+    tools:context=".presentation.main.MyContactsActivity">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMyContacts_003"
+        android:id="@+id/guidelineHorizontalMyContacts003"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.03" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMyContacts_010"
+        android:id="@+id/guidelineHorizontalMyContacts010"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMyContactsLand_020"
+        android:id="@+id/guidelineHorizontalMyContactsLand020"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline_activityMyContacts_004"
+        android:id="@+id/guidelineVerticalMyContacts004"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.04" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline_activityMyContacts_096"
+        android:id="@+id/guidelineVerticalMyContacts096"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.96" />
 
-    <ImageButton
-        android:id="@+id/imageButtonArrowBack"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewMyContactsArrowBack"
         style="@style/widthHeightIsWrapContent"
 
-        android:background="@null"
         android:src="@drawable/ic_baseline_arrow_back_24"
 
-        app:layout_constraintBottom_toBottomOf="@id/textViewContacts"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMyContacts_004"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMyContacts_003" />
+        app:layout_constraintBottom_toBottomOf="@id/textViewMyContactsContacts"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMyContacts004"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMyContacts003" />
 
-    <ImageButton
-        android:id="@+id/imageButtonSearch"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewMyContactsSearch"
         style="@style/widthHeightIsWrapContent"
 
-        android:background="@null"
         android:src="@drawable/ic_search"
 
-        app:layout_constraintBottom_toBottomOf="@id/textViewContacts"
-        app:layout_constraintEnd_toEndOf="@id/verticalGuideline_activityMyContacts_096"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMyContacts_003" />
+        app:layout_constraintBottom_toBottomOf="@id/textViewMyContactsContacts"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalMyContacts096"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMyContacts003" />
 
     <TextView
-        android:id="@+id/textViewContacts"
+        android:id="@+id/textViewMyContactsContacts"
         style="@style/widthHeightIsWrapContent"
 
         android:fontFamily="@font/opensans_semi_bold"
@@ -88,41 +73,31 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMyContacts_003" />
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMyContacts003" />
 
-    <View
-        android:id="@+id/viewBottomContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-
-        android:background="@color/alabaster"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayoutNord2"
-        app:layout_constraintVertical_weight="1" />
-
-
-    <TextView
-        android:id="@+id/textViewAddContacts"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewMyContactsAddContacts"
         style="@style/widthHeightIsWrapContent"
 
         android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/add_contacts"
         android:textColor="@color/alabaster"
         android:textSize="@dimen/text_14sp"
-        app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline_activityMyContactsLand_020"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMyContacts_004"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMyContacts_010" />
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalMyContactsLand020"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMyContacts004"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMyContacts010" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewContacts"
+        android:id="@+id/recyclerViewMyContactsContactList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
+        android:background="@color/white"
+
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/viewBottomContainer" />
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMyContactsLand020"
+
+        tools:listitem="@layout/contact_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

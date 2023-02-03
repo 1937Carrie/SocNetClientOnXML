@@ -10,6 +10,7 @@
     <dimen name="dimension_40dp">40dp</dimen>
     <dimen name="dimension_48dp">48dp</dimen>
     <dimen name="dimension_52dp">52dp</dimen>
+    <dimen name="icon_size">60dp</dimen>
     <!-- Text size  -->
     <dimen name="text_12sp">12sp</dimen>
     <dimen name="text_14sp">14sp</dimen>

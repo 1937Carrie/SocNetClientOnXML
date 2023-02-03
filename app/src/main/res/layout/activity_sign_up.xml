@@ -7,61 +7,61 @@
     android:background="@color/steel_gray">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activitySignUp_010"
+        android:id="@+id/guidelineHorizontalSignUp010"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activitySignUp_020"
+        android:id="@+id/guidelineHorizontalSignUp020"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activitySignUp_060"
+        android:id="@+id/guidelineHorizontalSignUp060"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activitySignUp_090"
+        android:id="@+id/guidelineHorizontalSignUp090"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewLetsGetAcquainted"
+        android:id="@+id/textViewSignUpGetAcquainted"
         style="@style/widthHeightIsWrapContent"
 
         android:text="@string/let_s_get_a"
         android:textAlignment="center"
         android:textAppearance="@style/textViewLetsGetAcquaintedTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@+id/textViewFillOutProfile"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSignUpFillOutProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activitySignUp_010" />
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp010" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewFillOutProfile"
+        android:id="@+id/textViewSignUpFillOutProfile"
         style="@style/widthHeightIsWrapContent"
 
         android:text="@string/fill_out_the_profile"
         android:textAlignment="center"
         android:textAppearance="@style/textViewLFillOutTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activitySignUp_020"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalSignUp020"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLetsGetAcquainted" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSignUpGetAcquainted" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutEmail"
+        android:id="@+id/textInputLayoutSignUpEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_16dp"
@@ -74,13 +74,13 @@
         app:expandedHintEnabled="false"
         app:hintTextColor="@color/silver"
 
-        app:layout_constraintBottom_toTopOf="@id/textInputLayoutPassword"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayoutSignUpPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activitySignUp_020">
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp020">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/textInputEmail"
+            android:id="@+id/editTextSignUpEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -91,7 +91,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPassword"
+        android:id="@+id/textInputLayoutSignUpPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_16dp"
@@ -103,13 +103,13 @@
         app:expandedHintEnabled="false"
         app:hintTextColor="@color/silver"
 
-        app:layout_constraintBottom_toTopOf="@id/signUpCheckBoxRememberMe"
+        app:layout_constraintBottom_toTopOf="@id/checkBoxSignUpRememberMe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail">
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutSignUpEmail">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/textInputPassword"
+            android:id="@+id/editTextSignUpPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -120,10 +120,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/signUpCheckBoxRememberMe"
+        android:id="@+id/checkBoxSignUpRememberMe"
         style="@style/widthHeightIsWrapContent"
 
-        android:backgroundTint="@color/orange"
         android:button="@drawable/cb"
         android:buttonTint="@color/alabaster"
         android:checked="true"
@@ -132,37 +131,37 @@
         android:textAppearance="@style/checkBoxRememberMeTextAppearance"
         android:textColor="@color/bombay"
 
-        app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline_activitySignUp_060"
-        app:layout_constraintStart_toStartOf="@id/textInputLayoutPassword"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalSignUp060"
+        app:layout_constraintStart_toStartOf="@id/textInputLayoutSignUpPassword"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutSignUpPassword"
         tools:ignore="RtlSymmetry" />
 
     <sdumchykov.presentation.main.GoogleButton
-        android:id="@+id/buttonSignInWithGoogle"
+        android:id="@+id/buttonSignUpSignInWithGoogle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_16dp"
 
-        app:layout_constraintBottom_toTopOf="@id/textViewOr"
+        app:layout_constraintBottom_toTopOf="@id/textViewSignUpOr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/horizontalGuideline_activitySignUp_060" />
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalSignUp060" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewOr"
+        android:id="@+id/textViewSignUpOr"
         style="@style/widthHeightIsWrapContent"
 
         android:text="@string/or"
         android:textAlignment="center"
         android:textAppearance="@style/textViewOrTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/buttonRegister"
+        app:layout_constraintBottom_toTopOf="@id/buttonSignUpRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonSignInWithGoogle" />
+        app:layout_constraintTop_toBottomOf="@id/buttonSignUpSignInWithGoogle" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonSignUpRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_16dp"
@@ -174,13 +173,13 @@
         android:textSize="@dimen/text_16sp"
         app:backgroundTint="@null"
 
-        app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline_activitySignUp_090"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalSignUp090"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewOr" />
+        app:layout_constraintTop_toBottomOf="@id/textViewSignUpOr" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewTermAndCondition"
+        android:id="@+id/textViewSignUpTermAndCondition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_16dp"
@@ -190,13 +189,13 @@
         android:textAlignment="center"
         android:textAppearance="@style/textViewTermAndConditionTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/textViewAlreadyHaveAccount"
+        app:layout_constraintBottom_toTopOf="@id/textViewSignUpAlreadyHaveAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activitySignUp_090" />
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp090" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewAlreadyHaveAccount"
+        android:id="@+id/textViewSignUpAlreadyHaveAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimension_8dp"
@@ -209,13 +208,13 @@
         android:textSize="@dimen/text_14sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/textViewSignIn"
+        app:layout_constraintEnd_toStartOf="@id/textViewSignUpSignIn"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTermAndCondition" />
+        app:layout_constraintTop_toBottomOf="@id/textViewSignUpTermAndCondition" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewSignIn"
+        android:id="@+id/textViewSignUpSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimension_12dp"
@@ -227,7 +226,7 @@
         android:textSize="@dimen/text_14sp"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textViewAlreadyHaveAccount"
-        app:layout_constraintTop_toTopOf="@id/textViewAlreadyHaveAccount" />
+        app:layout_constraintStart_toEndOf="@id/textViewSignUpAlreadyHaveAccount"
+        app:layout_constraintTop_toTopOf="@id/textViewSignUpAlreadyHaveAccount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

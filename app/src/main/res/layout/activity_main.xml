@@ -7,20 +7,20 @@
     tools:context=".presentation.main.MainActivity">
 
     <View
-        android:id="@+id/constraintLayoutNorth"
+        android:id="@+id/viewMainTop"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
         android:background="@color/steel_gray"
 
-        app:layout_constraintBottom_toTopOf="@id/constraintLayoutSouth"
+        app:layout_constraintBottom_toTopOf="@id/viewMainBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="0.5" />
 
     <View
-        android:id="@+id/constraintLayoutSouth"
+        android:id="@+id/viewMainBottom"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -29,94 +29,94 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayoutNorth"
+        app:layout_constraintTop_toBottomOf="@id/viewMainTop"
         app:layout_constraintVertical_weight="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMain_002"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineHorizontalMain002"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.02" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMain_008"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineHorizontalMain008"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.08" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMain_050"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineHorizontalMain050"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline_activityMain_098"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineHorizontalMain098"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.98" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline_activityMain_002"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineVerticalMain002"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.02" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline_activityMain_035"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineVerticalMain035"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline_activityMain_065"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/guidelineVerticalMain065"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.65" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline_activityMain_098"
+        android:id="@+id/guidelineVerticalMain098"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.98" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewMainSettings"
+        style="@style/widthHeightIsWrapContent"
 
         android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/settings"
         android:textColor="@color/alabaster"
         android:textSize="@dimen/text_24sp"
 
-        app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline_activityMain_008"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMain_002"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMain_002" />
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalMain008"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMain002"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMain002" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageViewPicture"
+        android:id="@+id/imageViewMainProfilePicture"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
         android:contentDescription="@string/profile_image"
 
-        app:layout_constraintBottom_toTopOf="@id/textViewName"
-        app:layout_constraintEnd_toEndOf="@id/verticalGuideline_activityMain_065"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMain_035"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMain_008"
-        tools:src="@drawable/tmp_rounded_image"/>
+        app:layout_constraintBottom_toTopOf="@id/textViewMainName"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalMain065"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMain035"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMain008"
+
+        tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewMainName"
         style="@style/widthHeightIsWrapContent"
 
         android:fontFamily="@font/opensans_semi_bold"
@@ -124,26 +124,27 @@
         android:textColor="@color/alabaster"
         android:textSize="@dimen/text_18sp"
 
-        app:layout_constraintBottom_toTopOf="@id/textViewProfession"
+        app:layout_constraintBottom_toTopOf="@id/textViewMainProfession"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewPicture" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewMainProfilePicture" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewProfession"
+        android:id="@+id/textViewMainProfession"
         style="@style/widthHeightIsWrapContent"
         android:layout_marginTop="@dimen/dimension_8dp"
 
         android:text="@string/profession"
         android:textAppearance="@style/additionalTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/textViewAddress"
+        app:layout_constraintBottom_toTopOf="@id/textViewMainAddress"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewName" />
+        app:layout_constraintTop_toBottomOf="@id/textViewMainName"
+        tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewAddress"
+        android:id="@+id/textViewMainAddress"
         style="@style/widthHeightIsWrapContent"
         android:layout_marginTop="@dimen/dimension_16dp"
         android:layout_marginBottom="@dimen/dimension_52dp"
@@ -151,24 +152,25 @@
         android:text="@string/address"
         android:textAppearance="@style/additionalTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activityMain_050"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalMain050"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewProfession" />
+        app:layout_constraintTop_toBottomOf="@id/textViewMainProfession"
+        tools:ignore="TextContrastCheck" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow"
+        android:id="@+id/flowMainLinks"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/icon_size"
 
-        app:constraint_referenced_ids="imageViewFacebook, imageButtonLinkedIn, imageInstagram"
-        app:layout_constraintBottom_toTopOf="@id/flow2"
-        app:layout_constraintEnd_toEndOf="@id/verticalGuideline_activityMain_098"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMain_002"
-        app:layout_constraintTop_toTopOf="@id/horizontalGuideline_activityMain_050" />
+        app:constraint_referenced_ids="imageViewMainFacebook, imageViewMainLinkedIn, imageViewMainInstagram"
+        app:layout_constraintBottom_toTopOf="@id/buttonMainEditProfile"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalMain098"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMain002"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalMain050" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageViewFacebook"
+        android:id="@+id/imageViewMainFacebook"
         style="@style/widthHeightIsWrapContent"
 
         android:contentDescription="@string/icon_facebook"
@@ -176,7 +178,7 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageButtonLinkedIn"
+        android:id="@+id/imageViewMainLinkedIn"
         style="@style/widthHeightIsWrapContent"
 
         android:contentDescription="@string/icon_linkedin"
@@ -184,44 +186,31 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageInstagram"
+        android:id="@+id/imageViewMainInstagram"
         style="@style/widthHeightIsWrapContent"
-
-        android:layout_marginStart="@dimen/dimension_32dp"
 
         android:contentDescription="@string/icon_instagram"
         android:src="@drawable/ic_instagram"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-
-        android:orientation="vertical"
-        app:constraint_referenced_ids="buttonEditProfile, buttonViewMyContacts"
-        app:flow_verticalGap="@dimen/dimension_16dp"
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline_activityMain_098"
-        app:layout_constraintEnd_toEndOf="@id/verticalGuideline_activityMain_098"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMain_002"
-        app:layout_constraintTop_toBottomOf="@id/flow" />
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonEditProfile"
+        android:id="@+id/buttonMainEditProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimension_16dp"
 
         android:background="@drawable/selector_button_edit_profile"
         android:text="@string/edit_profile"
-
         android:textAppearance="@style/buttonEditProfileTextAppearance"
         android:textColor="@color/buttonEditProfileTextColor"
-        app:layout_constraintEnd_toEndOf="@id/verticalGuideline_activityMain_098"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMain_002" />
 
+        app:layout_constraintBottom_toTopOf="@id/buttonMainViewMyContacts"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalMain098"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMain002"
+        tools:ignore="VisualLintButtonSize" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonViewMyContacts"
+        android:id="@+id/buttonMainViewMyContacts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
@@ -229,7 +218,8 @@
         android:text="@string/view_my_contacts"
         android:textAppearance="@style/viewMyContactsTextAppearance"
 
-        app:layout_constraintEnd_toEndOf="@id/verticalGuideline_activityMain_098"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline_activityMain_002"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalMain098"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalMain098"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalMain002"
+        tools:ignore="VisualLintButtonSize" />
 </androidx.constraintlayout.widget.ConstraintLayout>

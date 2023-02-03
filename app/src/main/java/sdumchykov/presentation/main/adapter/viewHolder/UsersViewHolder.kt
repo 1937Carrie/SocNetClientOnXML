@@ -15,8 +15,8 @@ class UsersViewHolder(
     fun bindTo(user: UserModel) {
 //        binding.imageViewPhoto.loadCircleImage(user.imageId)
         with(binding) {
-            textViewName.text = user.name
-            textViewProfession.text = user.profession
+            textViewMainName.text = user.name
+            textViewMainProfession.text = user.profession
             imageViewPhoto.setImageCacheless("https://picsum.photos/200")
 
             setListeners(user)
