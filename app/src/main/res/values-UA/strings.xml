@@ -24,6 +24,7 @@
     <string name="by_clicking">Натиснувши «Реєстрація», ви погоджуєтеся з нашими умовами</string>
     <string name="already_have">Вже є аккаунт?</string>
     <string name="sign_in">Увійти</string>
+    <string name="not_found">Не знайдено</string>
     <!--  contentDescription  -->
     <string name="icon_facebook">Іконка Facebook</string>
     <string name="icon_linkedin">Іконка Linkedin</string>

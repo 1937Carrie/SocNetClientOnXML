@@ -13,21 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerView">
         <activity
-            android:name=".presentation.main.MyContactsActivity"
+            android:name=".presentation.contacts.MyContactsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name=".presentation.myProfile.MyProfileActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.main.SignUpActivity"
+            android:name=".presentation.signUp.SignUpActivity"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>

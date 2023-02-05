@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:textColor="@color/alabaster"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/alabaster" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -43,8 +43,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:textColor="@color/alabaster"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/alabaster" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -64,19 +64,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:textColor="@color/alabaster"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="@color/alabaster" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonAddContactsDialogAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="156dp"
         android:layout_height="wrap_content"
 
         android:backgroundTint="@color/orange"
+        android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/add_contact"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16sp"
 
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonAddContactsDialogCancel"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutAddContactsDialogProfession" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonAddContactsDialogCancel"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+
+        android:backgroundTint="@color/alabaster"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="Cancel"
+        android:textSize="@dimen/text_16sp"
+
+        app:layout_constraintEnd_toStartOf="@id/buttonAddContactsDialogAdd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutAddContactsDialogProfession" />
 </androidx.constraintlayout.widget.ConstraintLayout>

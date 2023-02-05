@@ -24,6 +24,7 @@
     <string name="by_clicking">By clicking Register you agree to our Terms and Conditions</string>
     <string name="already_have">Already have an account?</string>
     <string name="sign_in">Sign in</string>
+    <string name="not_found">Not found</string>
     <!--  contentDescription  -->
     <string name="icon_facebook">Facebook icon</string>
     <string name="icon_linkedin">LinkedIn icon</string>

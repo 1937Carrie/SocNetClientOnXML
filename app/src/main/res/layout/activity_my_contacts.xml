@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/steel_gray"
-    tools:context=".presentation.main.MyContactsActivity">
+    tools:context=".presentation.contacts.MyContactsActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontalMyContacts003"
