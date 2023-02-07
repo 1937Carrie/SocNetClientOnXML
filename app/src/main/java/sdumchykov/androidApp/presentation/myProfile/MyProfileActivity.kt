@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import sdumchykov.R
+import sdumchykov.androidApp.R
+import sdumchykov.androidApp.databinding.ActivityMyProfileBinding
 import sdumchykov.androidApp.domain.utils.Constants.EMAIL_KEY
 import sdumchykov.androidApp.presentation.base.BaseActivity
 import sdumchykov.androidApp.presentation.contacts.MyContactsActivity
 import sdumchykov.androidApp.presentation.utils.ext.setImage
-import sdumchykov.databinding.ActivityMyProfileBinding
 
 private const val HARDCODED_IMAGE_PATH = "https://www.instagram.com/p/BDdr32ZrvgP/"
 private const val SIGN_AT = '@'

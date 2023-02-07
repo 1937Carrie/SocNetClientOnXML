@@ -7,11 +7,11 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
 import dagger.hilt.android.AndroidEntryPoint
-import sdumchykov.R
+import sdumchykov.androidApp.R
+import sdumchykov.androidApp.databinding.ActivitySignUpBinding
 import sdumchykov.androidApp.domain.utils.Constants.EMAIL_KEY
 import sdumchykov.androidApp.presentation.base.BaseActivity
 import sdumchykov.androidApp.presentation.myProfile.MyProfileActivity
-import sdumchykov.databinding.ActivitySignUpBinding
 
 private const val MINIMUM_PASSWORD_LENGTH = 8
 private const val PATTERN_DIGIT = "\\d"

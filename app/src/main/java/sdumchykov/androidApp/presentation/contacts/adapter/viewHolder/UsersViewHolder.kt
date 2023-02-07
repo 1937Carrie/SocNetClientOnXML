@@ -1,10 +1,10 @@
 package sdumchykov.androidApp.presentation.contacts.adapter.viewHolder
 
 import androidx.recyclerview.widget.RecyclerView
+import sdumchykov.androidApp.databinding.ContactItemBinding
 import sdumchykov.androidApp.domain.model.UserModel
 import sdumchykov.androidApp.presentation.contacts.adapter.listener.UsersListener
 import sdumchykov.androidApp.presentation.utils.ext.setImageCacheless
-import sdumchykov.databinding.ContactItemBinding
 
 
 class UsersViewHolder(

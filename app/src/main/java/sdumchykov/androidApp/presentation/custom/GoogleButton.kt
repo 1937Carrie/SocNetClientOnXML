@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
-import sdumchykov.R
+import sdumchykov.androidApp.R
 
 private const val RADIUS_VALUE = 4F
 private const val ICON_SIDE_VALUE =
@@ -57,14 +57,6 @@ class GoogleButton @JvmOverloads constructor(
 
     }
 
-    private fun drawText(canvas: Canvas) {
-        paint.typeface = fontFamily
-        val yPos = (height - paint.descent() - paint.ascent()) / 2
-        canvas.drawText(
-            text, (measuredWidth + iconSide + floatToDP(BETWEEN_LOGO_AND_TEXT)) / 2, yPos, paint
-        )
-    }
-
     private fun drawLogo(canvas: Canvas) {
         val startX =
             (measuredWidth - iconSide - floatToDP(BETWEEN_LOGO_AND_TEXT) - text.width()) / 2
@@ -77,11 +69,20 @@ class GoogleButton @JvmOverloads constructor(
         icon?.draw(canvas)
     }
 
+    private fun drawText(canvas: Canvas) {
+        paint.typeface = fontFamily
+        val yPos = (height - paint.descent() - paint.ascent()) / 2
+        canvas.drawText(
+            text, (measuredWidth + iconSide + floatToDP(BETWEEN_LOGO_AND_TEXT)) / 2, yPos, paint
+        )
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val newHeight = floatToDP(HEIGHT).toInt()
 
         super.onMeasure(
-            widthMeasureSpec, MeasureSpec.makeMeasureSpec(newHeight, MeasureSpec.EXACTLY)
+//            widthMeasureSpec, MeasureSpec.makeMeasureSpec(newHeight, MeasureSpec.EXACTLY)
+            widthMeasureSpec, heightMeasureSpec
         )
 
     }
