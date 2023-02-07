@@ -18,7 +18,7 @@ private const val ICON_SIDE_VALUE =
 private const val BETWEEN_LOGO_AND_TEXT =
     24F  //https://developers.google.com/identity/branding-guidelines#padding
 private const val GOOGLE = "GOOGLE"
-private const val HEIGHT = 36F
+//private const val HEIGHT = 36F
 
 class GoogleButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -26,16 +26,23 @@ class GoogleButton @JvmOverloads constructor(
     val text = GOOGLE
     val fontFamily = ResourcesCompat.getFont(context, R.font.roboto_regular)
 
-    private val paint = Paint().apply {
-        isAntiAlias = true
-        color = Color.BLACK
-        textSize = 50f
-        textAlign = Paint.Align.CENTER
-    }
+    private val paint = Paint()
     private val rect = Rect()
-    val radius = floatToDP(RADIUS_VALUE)  // Radius of the rounded corner.
+    val radius = RADIUS_VALUE.toDP()  // Radius of the rounded corner.
     private val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_google_logo, null)
-    private val iconSide = floatToDP(ICON_SIDE_VALUE).toInt()
+    private val iconSide = ICON_SIDE_VALUE.toDP().toInt()
+
+    //region Text dimensions
+    private var textX = 0F
+    private var textY = 0F
+    //endregion
+
+    //region Logo dimensions
+    private var left = 0
+    private var top = 0
+    private var right = 0
+    private var bottom = 0
+    //endregion
 
     init {
         val shape = GradientDrawable()
@@ -44,52 +51,53 @@ class GoogleButton @JvmOverloads constructor(
         shape.cornerRadius = radius
         background = shape  //background is rounded rectangle
 
+        paint.apply {
+            isAntiAlias = true
+            color = Color.BLACK
+            textSize = 50f
+            textAlign = Paint.Align.CENTER
+            typeface = fontFamily
+        }
+
         paint.getTextBounds(text, 0, text.lastIndex, rect)
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        textX = (measuredWidth + iconSide + BETWEEN_LOGO_AND_TEXT.toDP()) / 2
+        textY = (height - paint.descent() - paint.ascent()) / 2
+
+        this.left =
+            ((measuredWidth - iconSide - BETWEEN_LOGO_AND_TEXT.toDP() - text.width()) / 2).toInt()
+        this.top = (measuredHeight - iconSide) / 2
+        this.right = this.left + iconSide
+        this.bottom = (measuredHeight + iconSide) / 2
+
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
         if (canvas != null) {
-            drawLogo(canvas)
-            drawText(canvas)
+            drawLogo(canvas, left, top, right, bottom)
+            drawText(canvas, textX, textY)
         }
 
     }
 
-    private fun drawLogo(canvas: Canvas) {
-        val startX =
-            (measuredWidth - iconSide - floatToDP(BETWEEN_LOGO_AND_TEXT) - text.width()) / 2
-        icon?.setBounds(
-            startX.toInt(),
-            (measuredHeight - iconSide) / 2,
-            (startX + iconSide).toInt(),
-            (measuredHeight + iconSide) / 2
-        )
+    private fun drawLogo(canvas: Canvas, left: Int, top: Int, right: Int, bottom: Int) {
+        icon?.setBounds(left, top, right, bottom)
         icon?.draw(canvas)
     }
 
-    private fun drawText(canvas: Canvas) {
-        paint.typeface = fontFamily
-        val yPos = (height - paint.descent() - paint.ascent()) / 2
-        canvas.drawText(
-            text, (measuredWidth + iconSide + floatToDP(BETWEEN_LOGO_AND_TEXT)) / 2, yPos, paint
-        )
+    private fun drawText(canvas: Canvas, x: Float, y: Float) {
+        canvas.drawText(text, x, y, paint)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val newHeight = floatToDP(HEIGHT).toInt()
-
-        super.onMeasure(
-//            widthMeasureSpec, MeasureSpec.makeMeasureSpec(newHeight, MeasureSpec.EXACTLY)
-            widthMeasureSpec, heightMeasureSpec
-        )
-
-    }
-
-    private fun floatToDP(dpValue: Float): Float {
+    private fun Float.toDP(): Float {
         return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, dpValue, context.resources.displayMetrics
+            TypedValue.COMPLEX_UNIT_DIP, this, context.resources.displayMetrics
         )
     }
 
