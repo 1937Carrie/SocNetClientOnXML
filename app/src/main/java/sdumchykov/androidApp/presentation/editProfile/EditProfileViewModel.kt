@@ -81,7 +81,6 @@ class EditProfileViewModel @Inject constructor(
                     phone = user?.phone,
                     twitter = user?.twitter
                 )
-                if (userDao.getUser() != null) userDao.delete(userDao.getUser())
                 userDao.insert(userData)
 
                 setSuccessStatus()

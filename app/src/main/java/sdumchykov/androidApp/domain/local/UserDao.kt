@@ -8,9 +8,7 @@ interface UserDao {
     @Query("SELECT * FROM User LIMIT 1")
     fun getUser(): User
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(user: User)
 
-    @Delete
-    fun delete(user: User)
 }

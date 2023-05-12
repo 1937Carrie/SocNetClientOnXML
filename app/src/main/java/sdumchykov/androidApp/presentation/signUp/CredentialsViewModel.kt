@@ -57,7 +57,6 @@ class CredentialsViewModel @Inject constructor(
 
             if (response.isSuccessful && response.body() != null) {
                 val userDao = db.userDao()
-                if (userDao.getUser() != null) userDao.delete(userDao.getUser())
 
                 val user = response.body()?.data?.user
                 val userData = User(
@@ -101,7 +100,6 @@ class CredentialsViewModel @Inject constructor(
 
             if (response.isSuccessful && response.body() != null) {
                 val userDao = db.userDao()
-                userDao.delete(userDao.getUser())
 
                 val user = response.body()?.data?.user
 
@@ -171,7 +169,6 @@ class CredentialsViewModel @Inject constructor(
                     phone = user?.phone,
                     twitter = user?.twitter
                 )
-                if (userDao.getUser() != null) userDao.delete(userDao.getUser())
                 userDao.insert(userData)
 
                 setSuccessStatus(_status)
