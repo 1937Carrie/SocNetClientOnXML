@@ -31,9 +31,9 @@ class GoogleButton @JvmOverloads constructor(
 
     private val paint = Paint()
     private val rect = Rect()
-    val radius = RADIUS_VALUE.toDP() // Radius of the rounded corner.
+    val radius = RADIUS_VALUE.dp // Radius of the rounded corner.
     private val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_google_logo, null)
-    private val iconSide = ICON_SIDE_VALUE.toDP().toInt()
+    private val iconSide = ICON_SIDE_VALUE.dp.toInt()
 
     //region Text dimensions
     private var textX = 0F
@@ -83,11 +83,11 @@ class GoogleButton @JvmOverloads constructor(
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
 
-        textX = (measuredWidth + iconSide + BETWEEN_LOGO_AND_TEXT.toDP()) / 2
+        textX = (measuredWidth + iconSide + BETWEEN_LOGO_AND_TEXT.dp) / 2
         textY = (height - paint.descent() - paint.ascent()) / 2
 
         this.left =
-            ((measuredWidth - iconSide - BETWEEN_LOGO_AND_TEXT.toDP() - text.width()) / 2).toInt()
+            ((measuredWidth - iconSide - BETWEEN_LOGO_AND_TEXT.dp - text.width()) / 2).toInt()
         this.top = (measuredHeight - iconSide) / 2
         this.right = this.left + iconSide
         this.bottom = (measuredHeight + iconSide) / 2
@@ -111,11 +111,11 @@ class GoogleButton @JvmOverloads constructor(
         canvas.drawText(text, x, y, paint)
     }
 
-    private fun Float.toDP(): Float {
-        return TypedValue.applyDimension(
+    private val Float.dp: Float
+        get() = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, this, context.resources.displayMetrics
         )
-    }
+
 
     private fun String.width(): Float {
         return paint.measureText(this)
