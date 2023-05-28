@@ -8,25 +8,32 @@
     tools:context=".presentation.signUp.SignUpFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineHorizontalSignUp010"
+        android:id="@+id/guidelineHorizontalSignUp015"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.12" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineHorizontalSignUp020"
+        android:id="@+id/guidelineHorizontalSignUp028"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.28" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineHorizontalSignUp060"
+        android:id="@+id/guidelineHorizontalSignUp061"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.61" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalSignUp066"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontalSignUp090"
@@ -38,6 +45,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewSignUpGetAcquainted"
         style="@style/widthHeightIsWrapContent"
+        android:layout_marginBottom="@dimen/dimension_8dp"
 
         android:text="@string/let_s_get_a"
         android:textAlignment="center"
@@ -46,7 +54,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewSignUpFillOutProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp010" />
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp015"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewSignUpFillOutProfile"
@@ -56,10 +65,10 @@
         android:textAlignment="center"
         android:textAppearance="@style/textViewLFillOutTextAppearance"
 
-        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalSignUp020"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalSignUp028"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSignUpGetAcquainted" />
+        app:layout_constraintTop_toBottomOf="@id/textViewSignUpGetAcquainted" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutSignUpEmail"
@@ -76,7 +85,8 @@
         app:layout_constraintBottom_toTopOf="@id/textInputLayoutSignUpPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp020">
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp028"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editTextSignUpEmail"
@@ -133,7 +143,7 @@
         android:textAppearance="@style/checkBoxRememberMeTextAppearance"
         android:textColor="@color/bombay"
 
-        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalSignUp060"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalSignUp061"
         app:layout_constraintStart_toStartOf="@id/textInputLayoutSignUpPassword"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutSignUpPassword"
         tools:ignore="RtlSymmetry" />
@@ -143,14 +153,17 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/dimension_40dp"
         android:layout_marginHorizontal="@dimen/dimension_16dp"
+
         app:layout_constraintBottom_toTopOf="@id/textViewSignUpOr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalSignUp060" />
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontalSignUp066"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewSignUpOr"
         style="@style/widthHeightIsWrapContent"
+        android:layout_marginVertical="@dimen/dimension_8dp"
 
         android:text="@string/or"
         android:textAlignment="center"

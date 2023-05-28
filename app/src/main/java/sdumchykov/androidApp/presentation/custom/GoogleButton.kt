@@ -72,7 +72,7 @@ class GoogleButton @JvmOverloads constructor(
         paint.apply {
             isAntiAlias = true
             color = Color.BLACK
-            textSize = 50f
+            textSize = 16f.dp
             textAlign = Paint.Align.CENTER
             typeface = fontFamily
         }
