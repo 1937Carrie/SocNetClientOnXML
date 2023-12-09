@@ -21,7 +21,8 @@
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="sdumchykov.androidApp.presentation.viewPager.ViewPagerFragment"
-        android:label="ViewPagerFragment">
+        android:label="ViewPagerFragment"
+        tools:layout="@layout/fragment_view_pager">
         <action
             android:id="@+id/action_viewPagerFragment_to_contactProfileFragment"
             app:destination="@id/contactProfileFragment" />
