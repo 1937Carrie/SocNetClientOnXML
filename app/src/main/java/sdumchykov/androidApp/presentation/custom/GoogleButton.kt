@@ -77,13 +77,11 @@ class GoogleButton @JvmOverloads constructor(
         this.bottom = (measuredHeight + iconSide) / 2
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        if (canvas != null) {
-            drawLogo(canvas, left, top, right, bottom)
-            drawText(canvas, textX, textY)
-        }
+        drawLogo(canvas, left, top, right, bottom)
+        drawText(canvas, textX, textY)
     }
 
     private fun drawLogo(canvas: Canvas, left: Int, top: Int, right: Int, bottom: Int) {
